@@ -6,11 +6,24 @@ export const FETCHING_SMURFS_FAIL = 'FETCHING_SMURFS_FAIL'
 export const ADD_NEW_SMURF = 'ADD_NEW_SMURF'
 
 export const fetchSmurfs = () => {
+    return(dispatch) => {
+        dispatch({ type: FETCHING_SMURFS_START})
+
+        axios 
+            .get('http://localhost:3333/smurfs')
+            .then(res => {
+                dispatch({ type: FETCHING_SMURFS_SUCCESS, payload: res.data})
+                console.log(res.data)
+            })
+            .catch(err => {
+                dispatch({ type: FETCHING_SMURFS_FAIL, payload: err.message})
+            })
+    }
 
 }
 
 export const addSmurf = () => {
-    
+
 }
 
 //Task List:
