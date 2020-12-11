@@ -1,17 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { initialState } from '../reducers';
+import { connect } from 'react-redux'
+
+const initialValues = {
+    name: '',
+    position: '',
+    nickname: '',
+    description: '',
+}
 
 const AddForm = () => {
+    const [smurfInfo, setSmurfInfo] = useState(initialValues)
 
-    const handleChange = () => {
+    const handleChange = (e) => {
+        setSmurfInfo({
+            ...smurfInfo,
+            [e.target.name]: e.target.value
+        })
+    }
 
+    const onSubmit = e => {
+        e.preventDefault()
+        console.log(smurfInfo)
     }
 
         return(<section>
             <h2>Add Smurf</h2>
-            <form>
+            <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name:</label><br/>
-                    <input onChange={handleChange} name="name" id="name" />
+                    <input
+                    type='text'
+                    value={smurfInfo.name} 
+                    onChange={handleChange} 
+                    name="name" 
+                    id="name" 
+                    />
+                    <label htmlFor="position">Position:</label><br/>
+                    <input
+                    type='text'
+                    value={smurfInfo.position} 
+                    onChange={handleChange} 
+                    name="position" 
+                    id="position" 
+                    />
+                    <label htmlFor="nickname">Nickname:</label><br/>
+                    <input
+                    type='text'
+                    value={smurfInfo.nickname} 
+                    onChange={handleChange} 
+                    name="nickname" 
+                    id="nickname" 
+                    />
+                    <label htmlFor="description">Description:</label><br/>
+                    <input
+                    type='text'
+                    value={smurfInfo.description} 
+                    onChange={handleChange} 
+                    name="description" 
+                    id="description" 
+                    />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
@@ -20,7 +68,15 @@ const AddForm = () => {
         </section>);
     }
 
-export default AddForm;
+    const mapStateToProps = state => {
+        return {
+            smurfs: state.smurfs,
+            isLoading: state.isLoading,
+            error: state.error,
+        }
+    }
+
+export default connect(mapStateToProps, {})(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.
