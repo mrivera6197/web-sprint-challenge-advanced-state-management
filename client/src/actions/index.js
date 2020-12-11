@@ -1,5 +1,18 @@
 import axios from 'axios';
 
+export const FETCHING_SMURFS_START = 'FETCHING_SMURFS_START'
+export const FETCHING_SMURFS_SUCCESS = 'FETCHING_SMURFS_SUCCESS'
+export const FETCHING_SMURFS_FAIL = 'FETCHING_SMURFS_FAIL'
+export const ADD_NEW_SMURF = 'ADD_NEW_SMURF'
+
+export const fetchSmurfs = () => {
+
+}
+
+export const addSmurf = () => {
+    
+}
+
 //Task List:
 //1. Add fetch smurfs action: 
 //              - fetch and return initial list of smurfs

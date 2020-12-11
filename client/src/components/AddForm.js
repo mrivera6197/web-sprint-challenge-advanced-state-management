@@ -2,12 +2,16 @@ import React from 'react';
 
 const AddForm = () => {
 
+    const handleChange = () => {
+
+    }
+
         return(<section>
             <h2>Add Smurf</h2>
             <form>
                 <div className="form-group">
                     <label htmlFor="name">Name:</label><br/>
-                    <input onChange={this.handleChange} name="name" id="name" />
+                    <input onChange={handleChange} name="name" id="name" />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
