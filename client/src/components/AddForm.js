@@ -9,7 +9,7 @@ const initialValues = {
     description: '',
 }
 
-const AddForm = () => {
+const AddForm = (props) => {
     const [smurfInfo, setSmurfInfo] = useState(initialValues)
 
     const handleChange = (e) => {
@@ -62,7 +62,7 @@ const AddForm = () => {
                     />
                 </div>
 
-                <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
+                <div data-testid="errorAlert" className={props.error === '' ? '' : "alert alert-danger"} role="alert">Error: </div>
                 <button>Submit Smurf</button>
             </form>
         </section>);
