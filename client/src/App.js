@@ -6,8 +6,7 @@ import SmurfDisplay from './components/SmurfDisplay';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
         <nav className="navbar navbar-dark bg-primary">
@@ -20,7 +19,6 @@ class App extends Component {
       </div>
     );
   }
-}
 
 export default App;
 

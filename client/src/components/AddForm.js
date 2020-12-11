@@ -1,8 +1,7 @@
 import React from 'react';
 
-class AddForm extends React.Component {
+const AddForm = () => {
 
-    render() {
         return(<section>
             <h2>Add Smurf</h2>
             <form>
@@ -16,7 +15,6 @@ class AddForm extends React.Component {
             </form>
         </section>);
     }
-}
 
 export default AddForm;
 
