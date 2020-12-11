@@ -24,7 +24,7 @@ const StyledForm = styled.div`
         padding: 0.5rem 3rem;
         border-radius: 5px;
         border: none;
-        box-shadow: 1px 1px 4px;
+        box-shadow: 3px 3px 5px #05b0ff;
         
     }
 
@@ -37,7 +37,7 @@ const StyledForm = styled.div`
         width: 50%;
         background-color: white;
         border: none;
-        box-shadow: 1px 1px 4px;
+        box-shadow: 3px 3px 5px #05b0ff;
         margin: 0.7rem 0;
     }
 

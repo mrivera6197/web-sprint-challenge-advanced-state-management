@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@700&display=swap');
+
 html, body, #root, .App {
   height:100%;
   background: #007bff!important;
+  font-family: 'Andika New Basic', sans-serif;
+}
+
+h3, h2 {
+  color: red;
 }
 
 main {
-  background: white;
+  background: #bee7fa;
   width: 65%;
   margin: 2em auto;
 }
