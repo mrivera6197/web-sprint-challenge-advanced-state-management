@@ -30,7 +30,7 @@ const Smurf = (props) => {
         return(
         <StyledSmurf>
                 <div className='container'>
-                        <div data-testid="smurf" className="card">
+                        <div data-testid="smurf" className="card" key={props.smurf.id}>
                                 <h3>{props.smurf.name}</h3>
                                 <div className='info'>
                                         <p>position: {props.smurf.position}</p>

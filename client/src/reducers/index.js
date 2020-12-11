@@ -27,6 +27,18 @@ const reducer = ( state = initialState, action ) => {
                 error: action.payload,
             })
         case(ADD_NEW_SMURF):
+            return({
+                ...state,
+                smurfs: [
+                    ...state.smurfs,
+                    {
+                        name: action.name,
+                        position: action.position, 
+                        nickname: action.nickname,
+                        description: action.description,
+                    }
+                ]
+            })
         default: 
             return state
     }

@@ -22,7 +22,18 @@ export const fetchSmurfs = () => {
 
 }
 
-export const addSmurf = () => {
+export const addSmurf = (newSmurf) => {
+    return(dispatch) => {
+
+        axios
+        .post('http://localhost:3333/smurfs', newSmurf)
+        .then(res => {
+            dispatch({type: ADD_NEW_SMURF, payload: res.data, name: newSmurf.name, position: newSmurf.position, nickname: newSmurf.nickname, description: newSmurf.description})
+        })
+        .catch(err => {
+            dispatch({ type: FETCHING_SMURFS_FAIL, payload: err.message})
+        })
+    }
 
 }
 

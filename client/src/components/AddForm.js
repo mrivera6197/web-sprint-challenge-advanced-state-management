@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { initialState } from '../reducers';
 import { connect } from 'react-redux'
 
+import { addSmurf } from '../actions/index'
+
 import styled from 'styled-components'
 
 const StyledForm = styled.div`
@@ -65,7 +67,8 @@ const AddForm = (props) => {
 
     const onSubmit = e => {
         e.preventDefault()
-        console.log(smurfInfo)
+        props.addSmurf(smurfInfo)
+        setSmurfInfo(initialValues)
     }
 
         return(<section>
@@ -108,7 +111,7 @@ const AddForm = (props) => {
                         />
                     </div>
 
-                    <div data-testid="errorAlert" className={props.error === '' ? '' : "alert alert-danger"} role="alert">Error: </div>
+        <div data-testid="errorAlert" className={props.error === '' ? '' : "alert alert-danger"} role="alert">Error: {props.error}</div>
                     <button>Submit Smurf</button>
                 </form>
                 </div>
@@ -125,7 +128,7 @@ const AddForm = (props) => {
         }
     }
 
-export default connect(mapStateToProps, {})(AddForm);
+export default connect(mapStateToProps, { addSmurf })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.
