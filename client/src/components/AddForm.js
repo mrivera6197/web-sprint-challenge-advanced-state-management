@@ -2,6 +2,50 @@ import React, { useState } from 'react';
 import { initialState } from '../reducers';
 import { connect } from 'react-redux'
 
+import styled from 'styled-components'
+
+const StyledForm = styled.div`
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    form {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    input {
+        padding: 0.5rem 3rem;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 1px 1px 4px;
+        
+    }
+
+    label {
+        margin: 0.7rem 0;
+    }
+
+    button {
+        padding: 0.3rem;
+        width: 50%;
+        background-color: white;
+        border: none;
+        box-shadow: 1px 1px 4px;
+        margin: 0.7rem 0;
+    }
+
+    button:hover{
+        color: blue;
+    }
+`
+
 const initialValues = {
     name: '',
     position: '',
@@ -25,46 +69,51 @@ const AddForm = (props) => {
     }
 
         return(<section>
-            <h2>Add Smurf</h2>
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="name">Name:</label><br/>
-                    <input
-                    type='text'
-                    value={smurfInfo.name} 
-                    onChange={handleChange} 
-                    name="name" 
-                    id="name" 
-                    />
-                    <label htmlFor="position">Position:</label><br/>
-                    <input
-                    type='text'
-                    value={smurfInfo.position} 
-                    onChange={handleChange} 
-                    name="position" 
-                    id="position" 
-                    />
-                    <label htmlFor="nickname">Nickname:</label><br/>
-                    <input
-                    type='text'
-                    value={smurfInfo.nickname} 
-                    onChange={handleChange} 
-                    name="nickname" 
-                    id="nickname" 
-                    />
-                    <label htmlFor="description">Description:</label><br/>
-                    <input
-                    type='text'
-                    value={smurfInfo.description} 
-                    onChange={handleChange} 
-                    name="description" 
-                    id="description" 
-                    />
-                </div>
+            <StyledForm>
+                <div className='container'>
+                <h2>Join the Village</h2>
+                <form onSubmit={onSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="name">Name:</label><br/>
+                        <input
+                        type='text'
+                        value={smurfInfo.name} 
+                        onChange={handleChange} 
+                        name="name" 
+                        id="name" 
+                        />
+                        <label htmlFor="position">Position:</label><br/>
+                        <input
+                        type='text'
+                        value={smurfInfo.position} 
+                        onChange={handleChange} 
+                        name="position" 
+                        id="position" 
+                        />
+                        <label htmlFor="nickname">Nickname:</label><br/>
+                        <input
+                        type='text'
+                        value={smurfInfo.nickname} 
+                        onChange={handleChange} 
+                        name="nickname" 
+                        id="nickname" 
+                        />
+                        <label htmlFor="description">Description:</label><br/>
+                        <input
+                        type='text'
+                        value={smurfInfo.description} 
+                        onChange={handleChange} 
+                        name="description" 
+                        id="description" 
+                        />
+                    </div>
 
-                <div data-testid="errorAlert" className={props.error === '' ? '' : "alert alert-danger"} role="alert">Error: </div>
-                <button>Submit Smurf</button>
-            </form>
+                    <div data-testid="errorAlert" className={props.error === '' ? '' : "alert alert-danger"} role="alert">Error: </div>
+                    <button>Submit Smurf</button>
+                </form>
+                </div>
+            </StyledForm>
+            
         </section>);
     }
 
